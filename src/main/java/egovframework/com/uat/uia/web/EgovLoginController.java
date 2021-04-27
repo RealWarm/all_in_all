@@ -129,6 +129,8 @@ public class EgovLoginController {
 	@RequestMapping(value = "/uat/uia/actionLogin.do")
 	public String actionLogin(@ModelAttribute("loginVO") LoginVO loginVO, HttpServletRequest request, ModelMap model) throws Exception {
 
+		// 아이디 비번 >> 입력된 비번ㄱ솨
+		
 		// 1. 로그인인증제한 활성화시 
 		if( egovLoginConfig.isLock()){
 		    Map<?,?> mapLockUserInfo = (EgovMap)loginService.selectLoginIncorrect(loginVO);
