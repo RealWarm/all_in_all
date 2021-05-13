@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<beans	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:task="http://www.springframework.org/schema/task"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+							http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 	
 	<context:component-scan base-package="egovframework">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
@@ -17,7 +19,149 @@
 	<bean id="messageSource" class="egovframework.com.cmm.util.EgovWildcardReloadableResourceBundleMessageSource">
 		<property name="egovBasenames">
 			<list>
-				<value>classpath*:egovframework/message/com/**/*</value>
+				<!-- wildfly 동작 수정 : 와일드카드 형식 인식불가하여 전체 메시지 경로 포함시킴 -->
+				<!-- <value>classpath*:egovframework/message/com/**/*</value> -->
+				<value>classpath:/egovframework/message/com/message-common</value>
+				<value>classpath:/egovframework/message/com/cmm/message-common</value>
+				<value>classpath:/egovframework/message/com/cmm/err/message-common</value>
+				<value>classpath:/egovframework/message/com/cop/adb/message</value>
+				<value>classpath:/egovframework/message/com/cop/bbs/message</value>
+				<value>classpath:/egovframework/message/com/cop/blog/message</value>
+				<value>classpath:/egovframework/message/com/cop/cmt/message</value>
+				<value>classpath:/egovframework/message/com/cop/cmy/message</value>
+				<value>classpath:/egovframework/message/com/cop/com/message</value>
+				<value>classpath:/egovframework/message/com/cop/ncm/message</value>
+				<value>classpath:/egovframework/message/com/cop/scp/message</value>
+				<value>classpath:/egovframework/message/com/cop/sms/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/djm/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/dsm/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/lsm/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/mrm/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/mtm/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/sam/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/sdm/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/sim/message</value>
+				<value>classpath:/egovframework/message/com/cop/smt/wmr/message</value>
+				<value>classpath:/egovframework/message/com/cop/stf/message</value>
+				<value>classpath:/egovframework/message/com/cop/sym/ems/message</value>
+				<value>classpath:/egovframework/message/com/cop/tpl/message</value>
+				<value>classpath:/egovframework/message/com/dam/app/message</value>
+				<value>classpath:/egovframework/message/com/dam/map/mat/message</value>
+				<value>classpath:/egovframework/message/com/dam/map/tea/message</value>
+				<value>classpath:/egovframework/message/com/dam/mgm/message</value>
+				<value>classpath:/egovframework/message/com/dam/per/message</value>
+				<value>classpath:/egovframework/message/com/dam/spe/req/message</value>
+				<value>classpath:/egovframework/message/com/dam/spe/spe/message</value>
+				<value>classpath:/egovframework/message/com/ext/ldapumt/dpt/message</value>
+				<value>classpath:/egovframework/message/com/ext/msg/message</value>
+				<value>classpath:/egovframework/message/com/sec/drm/message</value>
+				<value>classpath:/egovframework/message/com/sec/gmt/message</value>
+				<value>classpath:/egovframework/message/com/sec/pki/message</value>
+				<value>classpath:/egovframework/message/com/sec/ram/message</value>
+				<value>classpath:/egovframework/message/com/sec/rgm/message</value>
+				<value>classpath:/egovframework/message/com/sec/rmt/message</value>
+				<value>classpath:/egovframework/message/com/ssi/syi/iis/message</value>
+				<value>classpath:/egovframework/message/com/ssi/syi/ims/message</value>
+				<value>classpath:/egovframework/message/com/ssi/syi/ist/message</value>
+				<value>classpath:/egovframework/message/com/ssi/syi/sim/message</value>
+				<value>classpath:/egovframework/message/com/sts/bst/message</value>
+				<value>classpath:/egovframework/message/com/sts/cst/message</value>
+				<value>classpath:/egovframework/message/com/sts/dst/message</value>
+				<value>classpath:/egovframework/message/com/sts/rst/message</value>
+				<value>classpath:/egovframework/message/com/sts/sst/message</value>
+				<value>classpath:/egovframework/message/com/sts/ust/message</value>
+				<value>classpath:/egovframework/message/com/sym/adr/message</value>
+				<value>classpath:/egovframework/message/com/sym/bat/message</value>
+				<value>classpath:/egovframework/message/com/sym/cal/message</value>
+				<value>classpath:/egovframework/message/com/sym/ccm/adc/message</value>
+				<value>classpath:/egovframework/message/com/sym/ccm/cca/message</value>
+				<value>classpath:/egovframework/message/com/sym/ccm/ccc/message</value>
+				<value>classpath:/egovframework/message/com/sym/ccm/cde/message</value>
+				<value>classpath:/egovframework/message/com/sym/ccm/icr/message</value>
+				<value>classpath:/egovframework/message/com/sym/ccm/zip/message</value>
+				<value>classpath:/egovframework/message/com/sym/log/clg/message</value>
+				<value>classpath:/egovframework/message/com/sym/log/lgm/message</value>
+				<value>classpath:/egovframework/message/com/sym/log/plg/message</value>
+				<value>classpath:/egovframework/message/com/sym/log/slg/message</value>
+				<value>classpath:/egovframework/message/com/sym/log/tlg/message</value>
+				<value>classpath:/egovframework/message/com/sym/log/ulg/message</value>
+				<value>classpath:/egovframework/message/com/sym/log/wlg/message</value>
+				<value>classpath:/egovframework/message/com/sym/mnu/bmm/message</value>
+				<value>classpath:/egovframework/message/com/sym/mnu/mcm/message</value>
+				<value>classpath:/egovframework/message/com/sym/mnu/mpm/message</value>
+				<value>classpath:/egovframework/message/com/sym/mnu/stm/message</value>
+				<value>classpath:/egovframework/message/com/sym/prm/message</value>
+				<value>classpath:/egovframework/message/com/sym/sym/bak/message</value>
+				<value>classpath:/egovframework/message/com/sym/sym/nwk/message</value>
+				<value>classpath:/egovframework/message/com/sym/sym/srv/message</value>
+				<value>classpath:/egovframework/message/com/sym/tbm/tbp/message</value>
+				<value>classpath:/egovframework/message/com/sym/tbm/tbr/message</value>
+				<value>classpath:/egovframework/message/com/uat/uap/message</value>
+				<value>classpath:/egovframework/message/com/uat/uia/message</value>
+				<value>classpath:/egovframework/message/com/uss/cmt/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/ans/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/bnr/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/bnt/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/ctn/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/ecc/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/evt/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/fbk/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/isg/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/ism/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/lsi/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/msi/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/mtg/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/noi/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/ntm/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/ntr/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/nts/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/nws/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/pwm/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/rec/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/rmm/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/rsm/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/rsn/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/rss/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/rwd/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/sit/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/tir/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/uas/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/ulm/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/vct/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/wik/bmk/message</value>
+				<value>classpath:/egovframework/message/com/uss/ion/yrc/message</value>
+				<value>classpath:/egovframework/message/com/uss/mpe/message</value>
+				<value>classpath:/egovframework/message/com/uss/olh/awm/message</value>
+				<value>classpath:/egovframework/message/com/uss/olh/faq/message</value>
+				<value>classpath:/egovframework/message/com/uss/olh/hpc/message</value>
+				<value>classpath:/egovframework/message/com/uss/olh/omm/message</value>
+				<value>classpath:/egovframework/message/com/uss/olh/qna/message</value>
+				<value>classpath:/egovframework/message/com/uss/olh/wor/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/cns/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/mgt/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/opm/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/opp/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/qim/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/qmc/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/qnn/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/qqm/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/qri/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/qrm/message</value>
+				<value>classpath:/egovframework/message/com/uss/olp/qtm/message</value>
+				<value>classpath:/egovframework/message/com/uss/sam/cpy/message</value>
+				<value>classpath:/egovframework/message/com/uss/sam/ipm/message</value>
+				<value>classpath:/egovframework/message/com/uss/sam/stp/message</value>
+				<value>classpath:/egovframework/message/com/uss/umt/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/dbm/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/fsm/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/htm/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/nsm/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/prm/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/pxy/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/rsc/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/srm/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/ssy/message</value>
+				<value>classpath:/egovframework/message/com/utl/sys/trm/message</value>
 				<value>classpath:/egovframework/rte/fdl/idgnr/messages/idgnr</value>
 				<value>classpath:/egovframework/rte/fdl/property/messages/properties</value>
 				<value>classpath:/egovframework/egovProps/globals</value>
@@ -63,10 +207,21 @@
 	<bean id="egov.antPathMater" class="org.springframework.util.AntPathMatcher" />
 
 	<bean id="egov.defaultTraceHandler" class="egovframework.rte.fdl.cmmn.trace.handler.DefaultTraceHandler" />
+	
+	<!-- ThreadPool 설정 Start -->
+	<bean id="pollTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="512"/>						<!-- 기본 스레드 수 -->
+		<property name="maxPoolSize" value="1024"/>						<!-- 최대 스레드 수 -->
+		<property name="queueCapacity" value="5120"/>					<!-- Queue 사이즈 -->
+		<property name="threadNamePrefix" value="Executor-common-"/>	<!-- 스레드 명 처리규칙 -->
+	</bean>
+	<task:annotation-driven executor="pollTaskExecutor"/>
 
+	<task:executor id="threadPoolTaskExecutor" pool-size="800" queue-capacity="2500"/>
+	<!-- ThreadPool 설정 End -->
 
     <!-- MULTIPART RESOLVERS -->
-    <!-- regular spring resolver -->
+    <!-- regular spring resolver -->"C:/App/website.url"
     <bean id="spring.RegularCommonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="600000000" />
         <property name="maxInMemorySize" value="100000000" />

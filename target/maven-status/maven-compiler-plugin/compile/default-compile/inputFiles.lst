@@ -770,6 +770,7 @@ C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframew
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\uss\ion\nts\web\EgovNoteTrnsmitController.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\uss\ion\bnr\service\impl\EgovBannerServiceImpl.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\uss\olp\qtm\service\EgovQustnrTmplatManageService.java
+C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\cmm\MakePW.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\cop\cmy\service\EgovCommuManageService.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\uss\ion\pwm\service\impl\PopupManageDAO.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\cop\bbs\service\Blog.java
@@ -862,6 +863,7 @@ C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframew
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\utl\sys\trm\service\impl\TrsmrcvMntrngDao.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\uss\ion\rmm\service\impl\EgovRoughMapDAO.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\cop\smt\dsm\service\EgovDiaryManageService.java
+C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\cmm\MakePW_Multi.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\cmm\service\impl\EgovComAbstractDAO.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\sec\ram\web\EgovAuthorManageController.java
 C:\App\eGovFrameDev-3.9.0-64bit\eclipse\workspace\Try_2\src\main\java\egovframework\com\sec\pki\web\EgovCryptoController.java

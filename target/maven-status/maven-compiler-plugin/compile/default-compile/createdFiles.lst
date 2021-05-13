@@ -274,6 +274,7 @@ egovframework\com\cop\sms\service\SmsVO.class
 egovframework\com\sym\mnu\mcm\service\MenuSiteMapVO.class
 egovframework\com\sym\prm\service\ProgrmManageVO.class
 egovframework\com\sec\ram\web\EgovAuthorRoleController.class
+egovframework\com\cmm\MakePW.class
 egovframework\com\ext\oauth\service\NaverAPI20$1.class
 egovframework\com\uss\olh\qna\service\EgovQnaService.class
 egovframework\com\uat\uia\service\impl\EgovLoginServiceImpl.class
@@ -367,6 +368,7 @@ egovframework\com\cop\bbs\service\Blog.class
 egovframework\com\cmm\config\EgovLoginConfig.class
 egovframework\com\dam\spe\spe\web\EgovKnoSpecialistController.class
 egovframework\com\cop\bbs\service\EgovBBSMasterService.class
+egovframework\com\cmm\MakePW_Multi.class
 egovframework\com\sym\bat\service\impl\EgovBatchSchdulServiceImpl.class
 egovframework\com\cop\ems\web\EgovSndngMailRegistController.class
 egovframework\com\cop\smt\djm\service\DeptJobVO.class

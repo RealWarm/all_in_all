@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import egovframework.com.sym.log.wlg.service.EgovWebLogService;
-import egovframework.com.sym.log.wlg.service.WebLog;
-
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-
 import javax.annotation.Resource;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+
+import egovframework.com.sym.log.wlg.service.EgovWebLogService;
+import egovframework.com.sym.log.wlg.service.WebLog;
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import egovframework.rte.fdl.idgnr.EgovIdGnrService;
 
 /**
  * @Class Name : EgovWebLogServiceImpl.java
@@ -40,19 +40,20 @@ public class EgovWebLogServiceImpl extends EgovAbstractServiceImpl implements
     /** ID Generation */
 	@Resource(name="egovWebLogIdGnrService")
 	private EgovIdGnrService egovWebLogIdGnrService;
-
+	
 	/**
 	 * 웹 로그를 기록한다.
 	 *
 	 * @param WebLog
 	 */
+	/*
 	@Override
 	public void logInsertWebLog(WebLog webLog) throws Exception {
 		String requstId = egovWebLogIdGnrService.getNextStringId();
 		webLog.setRequstId(requstId);
 
 		webLogDAO.logInsertWebLog(webLog);
-	}
+	}*/
 
 	/**
 	 * 웹 로그정보를 요약한다.

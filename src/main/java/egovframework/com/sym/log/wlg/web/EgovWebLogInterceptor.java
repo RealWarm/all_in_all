@@ -2,6 +2,7 @@ package egovframework.com.sym.log.wlg.web;
 
 import egovframework.com.cmm.LoginVO;
 import egovframework.com.cmm.util.EgovUserDetailsHelper;
+import egovframework.com.cmm.util.EgovWebLogger;
 import egovframework.com.sym.log.wlg.service.EgovWebLogService;
 import egovframework.com.sym.log.wlg.service.WebLog;
 
@@ -32,6 +33,9 @@ public class EgovWebLogInterceptor extends HandlerInterceptorAdapter {
 
 	@Resource(name="EgovWebLogService")
 	private EgovWebLogService webLogService;
+	
+	@Resource(name="egovWebLogger")
+	private EgovWebLogger egovWebLogger;
 
 	/**
 	 * 웹 로그정보를 생성한다.
@@ -59,7 +63,11 @@ public class EgovWebLogInterceptor extends HandlerInterceptorAdapter {
 		webLog.setRqesterId(uniqId);
 		webLog.setRqesterIp(request.getRemoteAddr());
 		
-		webLogService.logInsertWebLog(webLog);
+		/**
+		 * 웹로그 처리 트랜잭션 분리처리 (별도의 스레드 풀을 사용하여 처리하도록 변경)
+		 */
+		// webLogService.logInsertWebLog(webLog);
+		egovWebLogger.logInsertWebLog(webLog);
 		
 	}
 }

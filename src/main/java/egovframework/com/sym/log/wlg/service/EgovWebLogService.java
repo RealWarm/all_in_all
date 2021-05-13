@@ -26,7 +26,7 @@ public interface EgovWebLogService {
 	 *
 	 * @param WebLog
 	 */
-	public void logInsertWebLog(WebLog webLog) throws Exception;
+	//public void logInsertWebLog(WebLog webLog) throws Exception;
 
 	/**
 	 * 웹 로그정보를 요약한다.
