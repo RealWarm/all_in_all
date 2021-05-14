@@ -721,6 +721,7 @@ egovframework\com\utl\sys\nsm\service\impl\EgovNtwrkSvcMntrngServiceImpl.class
 egovframework\com\sym\mnu\stm\service\impl\EgovSiteMapngServiceImpl.class
 egovframework\com\dam\app\service\KnoAppraisalVO.class
 egovframework\com\uss\ion\tir\service\impl\EgovTwitterTrnsmitServiceImpl.class
+egovframework\com\cmm\util\EgovWebLogger.class
 egovframework\com\uss\ion\bnt\service\BndtCeckManageVO.class
 egovframework\com\uss\sam\ipm\service\impl\IndvdlInfoPolicyDao.class
 egovframework\com\uss\olp\opm\service\OnlinePollManage.class

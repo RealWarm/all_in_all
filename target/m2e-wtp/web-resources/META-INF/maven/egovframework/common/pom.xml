@@ -19,6 +19,8 @@
 	<properties>
 		<spring.maven.artifact.version>4.3.22.RELEASE</spring.maven.artifact.version>
 		<egovframework.rte.version>3.9.0</egovframework.rte.version>
+		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
+		<logback.version>1.1.1</logback.version>
 	</properties>
 
 	<repositories>
@@ -54,7 +56,69 @@
 		</repository>
 	</repositories>
 
+
+
+
+
 	<dependencies>
+
+
+		<!-- log4j 관련 exclusion -->
+		<dependency>
+			<groupId>egovframework.rte</groupId>
+			<artifactId>egovframework.rte.bat.core</artifactId>
+			<version>${egovframework.rte.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>log4j-core</artifactId>
+					<groupId>org.apache.logging.log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j-slf4j-impl</artifactId>
+					<groupId>org.apache.logging.log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j-over-slf4j</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- commons-logging 관련 exclusion -->
+		<!-- <exclusion>
+			<artifactId>commons-logging</artifactId>
+			<groupId>commons-logging</groupId>
+		</exclusion> -->
+
+		<!-- logback 관련 라이브러리 등록 -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+
+
+
+		<!-- Logback -->
+		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>jcl-over-slf4j</artifactId> 
+			<version>${jcloverslf4j.version}</version> </dependency> <dependency> <groupId>ch.qos.logback</groupId> 
+			<artifactId>logback-classic</artifactId> <version>1.2.3</version> </dependency> 
+			<dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-core</artifactId> 
+			<version>1.2.3</version> </dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
